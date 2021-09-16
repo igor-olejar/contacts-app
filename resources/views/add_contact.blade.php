@@ -36,7 +36,8 @@
             {!! Form::text('telephone', '', ['required' => 'required']) !!}
         </p>
         <p>
-            {!! Form::submit('Add') !!}
+            {!! Form::submit('Add', ['class' => 'btn btn-primary']) !!}
+            <a href='/' class="btn btn-secondary">Cancel</a>
         </p>
     {!! Form::close() !!}
 </div>
