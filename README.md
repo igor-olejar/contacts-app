@@ -20,6 +20,7 @@ To run the application on your local machine, do the following.
 
 ## Dependencies
 From the command line, run this to install the dependencies:
+
 <code>composer install</code>
 
 ## Migrate database tables
