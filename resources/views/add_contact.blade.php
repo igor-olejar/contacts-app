@@ -6,6 +6,16 @@
 @section('content')
 <div class="row">
     <h1>Add New Contact</h1>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <p>All fields are required</p>
 
     {!! Form::open(['url' => '/add']) !!}
