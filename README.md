@@ -18,6 +18,9 @@ To run the application on your local machine, do the following.
 
 <code> git checkout master</code>
 
+## Database credentials
+Sed the database credentials (username and password) in the `.env` file
+
 ## Dependencies
 From the command line, run this to install the dependencies:
 
@@ -28,9 +31,6 @@ From the command line, run this to install the dependencies:
 
 ## Seed some data
 <code>php artisan db:seed</code>
-
-## Run the tests
-<code>phpunit</code>
 
 ## Run the app in your browser
 <code>php artisan serve</code>
