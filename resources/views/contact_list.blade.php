@@ -11,12 +11,15 @@
 </div>
 <div class="row" id="filters">
     Filter contacts:
-    <p>
-        First Name: {!! Form::text('first_name') !!} Last Name: {!! Form::text('last_name') !!} Email: {!! Form::email('email') !!}
-    </p>
-    <p>
-        {!! Form::button('Apply Filters', ['class' => 'btn btn-primary']) !!} {!! Form::button('Clear Filters', ['class' => 'btn btn-secondary']) !!}
-    </p>
+    {!! Form::open(['url' => '/', 'method' => 'get']) !!}
+        <p>
+            First Name: {!! Form::text('first_name', $first_name_filter) !!} Last Name: {!! Form::text('last_name', $last_name_filter) !!} Email: {!! Form::text('email', $email_filter) !!}
+        </p>
+        <p>
+            {!! Form::submit('Apply Filters', ['class' => 'btn btn-primary']) !!}
+            <a href='/' class="btn btn-secondary">Clear Filters</a>
+        </p>
+    {!! Form::close() !!}
 </div>
 <div class="row" id="contact-list">
     <h2>Contact List</h2>

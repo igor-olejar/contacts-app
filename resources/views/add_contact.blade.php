@@ -19,26 +19,26 @@
     <p>All fields are required</p>
 
     {!! Form::open(['url' => '/add']) !!}
-        <p>
+        <div class="form-group">
             {!! Form::label('first_name', 'First Name') !!}
-            {!! Form::text('first_name', '', ['required' => 'required']) !!}
-        </p>
-        <p>
+            {!! Form::text('first_name', '', ['required' => 'required', 'class' => 'form-control']) !!}
+        </div>
+        <div class="form-group">
             {!! Form::label('last_name', 'Last Name') !!}
-            {!! Form::text('last_name', '', ['required' => 'required']) !!}
-        </p>
-        <p>
+            {!! Form::text('last_name', '', ['required' => 'required', 'class' => 'form-control']) !!}
+        </div>
+        <div class="form-group">
             {!! Form::label('email', 'Email Address') !!}
-            {!! Form::email('email', '', ['required' => 'required']) !!}
-        </p>
-        <p>
+            {!! Form::email('email', '', ['required' => 'required', 'class' => 'form-control']) !!}
+        </div>
+        <div class="form-group">
             {!! Form::label('telephone', 'Telephone') !!}
-            {!! Form::text('telephone', '', ['required' => 'required']) !!}
-        </p>
-        <p>
+            {!! Form::text('telephone', '', ['required' => 'required', 'class' => 'form-control']) !!}
+        </div>
+        <div class="form-group" style="margin-top: 10px;">
             {!! Form::submit('Add', ['class' => 'btn btn-primary']) !!}
             <a href='/' class="btn btn-secondary">Cancel</a>
-        </p>
+        </div>
     {!! Form::close() !!}
 </div>
 @endsection

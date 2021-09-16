@@ -6,19 +6,37 @@ use App\Models\Contact;
 use App\Rules\Telephone;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\DB;
+
+use function strtoupper;
 
 class ContactsController extends Controller
 {
 
 
-    public function showContacts(): View
+    public function showContacts(Request $request): View
     {
-        $contacts = Contact::orderBy('last_name')
-            ->orderBy('first_name')
-            ->get();
+        $contacts = Contact::select('*');
+
+        if ($request->first_name !== null) {
+            $contacts = $contacts->where(DB::raw('UPPER(first_name)'), 'like', '%' . strtoupper($request->first_name) . '%');
+        }
+
+        if ($request->last_name !== null) {
+            $contacts = $contacts->where(DB::raw('UPPER(last_name)'), 'like', '%' . strtoupper($request->last_name) . '%');
+        }
+
+        if ($request->email !== null) {
+            $contacts = $contacts->where(DB::raw('UPPER(email)'), 'like', '%' . strtoupper($request->email) . '%');
+        }
+
+        $contacts = $contacts->orderBy('last_name')->orderBy('first_name')->get();
 
         return view('contact_list', [
             'contacts' => $contacts,
+            'first_name_filter' => $request->first_name,
+            'last_name_filter' => $request->last_name,
+            'email_filter' => $request->email,
         ]);
     }
 
